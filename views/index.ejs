@@ -1,0 +1,25 @@
+<%- include("includes/head.ejs") %>
+
+<body>
+    <h1>Quora post</h3>
+     <% for(post of posts ){ %>
+        <div class="box">
+        <div><h3>@<%=post.username %></h3></div>
+        <div ><h5><%= post.content %></h5></div>
+        <a href="http://localhost:8080/posts/<%= post.id %>">SEE in details</a>
+        <a  href="http://localhost:8080/posts/<%= post.id %>/edit">edit</a> 
+        <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+            <button>delete</button>
+        </form>
+
+        </div>
+
+        <% } %>
+ 
+        
+        <button onclick="window.location.href='http://localhost:8080/posts/new'">Create New Post</button>
+
+       
+</body>
+
+</html>
